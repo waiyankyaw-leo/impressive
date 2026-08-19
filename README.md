@@ -39,6 +39,25 @@ the plugin is enabled.
 | **[impeccable](https://github.com/pbakaus/impeccable)** | Frontend design fluency — polish, audit, critique, and more. |
 | **[diagram-design](https://github.com/cathrynlavery/diagram-design)** | 28 editorial diagram types (architecture, flowchart, sequence, ER, timeline, and more) as standalone HTML/SVG. Also redraws existing Mermaid/drawio sources. |
 
+## Requirements
+
+This plugin is glue — the actual work happens in the tools it wraps, so
+what you need depends on which skills you use:
+
+| Requirement | Needed for | Why |
+|---|---|---|
+| Git | `setup` | It checks the repo is a git repo before doing anything (`git status`). |
+| Python 3.10+ and `pip` | `setup` (code-review-graph step) | `code-review-graph` installs via `pip install code-review-graph`. |
+| [uv](https://docs.astral.sh/uv/) (provides `uvx`) | `setup` (code-review-graph step) | code-review-graph's generated `.mcp.json` launches its MCP server via `uvx code-review-graph serve` — installing the pip package alone isn't enough, `uvx` has to be on PATH too. |
+| Node.js 22.18+ and `npx` | `frontend` | impeccable's CLI (`npx impeccable ...`) requires it. |
+| harness | `agents`, `setup` | Separate Claude Code plugin — install it yourself; not installed by this plugin. Claude-only, no Codex support. |
+| diagram-design | `visualize` | Separate plugin, dual-platform. `visualize` doesn't auto-install it — add it yourself if missing (`/plugin install diagram-design@diagram-design` on Claude, `codex plugin add diagram-design@diagram-design` on Codex). |
+| Claude Code CLI, Cowork, or Codex CLI | everything | Whichever platform you're installing `impressive` into. |
+
+`agents` and `visualize` don't self-install their underlying tool if it's
+missing — they just say so and stop. `frontend` is the one exception: it
+asks before installing impeccable for you (see below).
+
 ## Platforms
 
 Ships as a native plugin for both:
