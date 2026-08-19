@@ -1,6 +1,6 @@
 {
   "name": "impressive",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "One-command repo bootstrap that wires up harness (repo-specific agents), code-review-graph (impact/graph search), impeccable (frontend audit), and diagram-design (visualization) for any repository.",
   "author": {
     "name": "rexx"

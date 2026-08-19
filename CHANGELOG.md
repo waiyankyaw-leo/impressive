@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.4.1
+
+Bug fixes from a code review of the accumulated changes:
+
+- `frontend`'s `allowed-tools` was missing `Skill`, so it could only run
+  its Bash install fallback and could never actually invoke `impeccable`
+  in the common case where it was already installed. This broke the
+  skill's entire primary purpose — fixed by adding `Skill` back and by
+  making the flow explicit: try the Skill invocation first, install on
+  failure, then retry once.
+- `setup`'s heading still said "repo-toolkit", the plugin's name before
+  the rename to "impressive".
+- `setup`'s `code-review-graph` availability check assumed a POSIX
+  shell (`command -v`); now names the PowerShell equivalent too.
+
 ## 1.4.0
 
 - `frontend` now self-installs impeccable when it's missing, instead of

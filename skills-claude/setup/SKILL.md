@@ -4,7 +4,7 @@ description: Bootstrap this repo with the standard toolchain — repo-specific a
 disable-model-invocation: true
 ---
 
-# Setup repo-toolkit
+# Setup impressive
 
 Wires up three independent tools for this repo. Each step just invokes an existing tool — never reimplement what it already does. This skill is glue, not logic.
 
@@ -25,7 +25,7 @@ Invoke the `harness` skill/plugin for this repo — it defines specialist subage
 
 ### 3. Wire up code-review-graph
 
-Check it's actually installed first: `command -v code-review-graph`. If it's not on PATH, tell the user (`pip install code-review-graph`) and skip this step — don't let the install command fail with a raw shell error.
+Check it's actually installed first — `command -v code-review-graph` in a POSIX shell, `Get-Command code-review-graph` in PowerShell, whichever the current shell tool actually is. If it's not on PATH, tell the user (`pip install code-review-graph`) and skip this step — don't let the install command fail with a raw shell error.
 
 Otherwise, run in the repo root:
 
