@@ -27,7 +27,7 @@ Invoke the `harness` skill/plugin for this repo — it defines specialist subage
 
 Check it's actually installed first — `command -v code-review-graph` in a POSIX shell, `Get-Command code-review-graph` in PowerShell, whichever the current shell tool actually is. If it's not on PATH, tell the user (`pip install code-review-graph`) and skip this step — don't let the install command fail with a raw shell error.
 
-Otherwise, run in the repo root:
+Otherwise, **ask the user for confirmation before running it** — running `/impressive:setup` authorizes the bootstrap sequence in general, but installing/configuring an external tool in this repo is its own distinct action and gets its own explicit go-ahead:
 
 ```
 code-review-graph install --platform claude-code -y

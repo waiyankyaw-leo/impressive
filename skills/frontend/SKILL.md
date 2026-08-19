@@ -10,10 +10,10 @@ First, try invoking the `impeccable` skill/plugin directly via the Skill tool �
 
 Pass along whatever target or sub-command the user specified. If they didn't specify one, let impeccable's own flow infer it rather than guessing here.
 
-If that invocation fails because `impeccable` isn't available, don't just stop — install it first, unattended:
+If that invocation fails because `impeccable` isn't available, don't just stop — but ask the user before installing it. Installing a new tool into their repo is a distinct action from routing a UI request, and needs its own explicit go-ahead even though the command itself is non-interactive:
 
 ```
 npx impeccable skills install -y --providers=<current-platform> --scope=project
 ```
 
-`<current-platform>` is `claude` or `codex` for this plugin's two supported platforms; if running somewhere else impeccable itself supports (Cursor, Gemini, etc. — see its own docs), use that provider's name instead. This install is non-interactive (`-y` skips all prompts) and safe to run without asking first — same category of action as `code-review-graph install` in `setup`. After installing, retry the Skill tool invocation once. Only if that also fails should you tell the user and stop.
+`<current-platform>` is `claude` or `codex` for this plugin's two supported platforms; if running somewhere else impeccable itself supports (Cursor, Gemini, etc. — see its own docs), use that provider's name instead. Once the user confirms, this install runs unattended (`-y` skips all further prompts). After installing, retry the Skill tool invocation once. Only if that also fails should you tell the user and stop.

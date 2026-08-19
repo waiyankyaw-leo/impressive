@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.2
+
+- Both installation steps (`code-review-graph install` in `setup`, the
+  `npx impeccable` install in `frontend`) now explicitly ask the user
+  before running, instead of running unattended just because the
+  command itself supports `-y`. Invoking the skill authorizes routing
+  the request; installing a new tool into the repo is a separate
+  action that gets its own confirmation.
+
 ## 1.4.1
 
 Bug fixes from a code review of the accumulated changes:
