@@ -1,4 +1,4 @@
-# repo-toolkit
+# impressive
 
 My standard per-repo setup, packaged as a Claude Code plugin instead of three
 tools I re-invoke by hand on every repo.
@@ -34,7 +34,7 @@ copy, no drift. `skills-claude/setup` is Claude-only (see below).
 
 Enable this plugin, then per repo:
 
-#### 1. Run `/repo-toolkit:setup`
+#### 1. Run `/impressive:setup`
 
 Once per repo. It will:
 
@@ -51,8 +51,8 @@ bootstrap on its own judgment, only you typing the command can.
 
 The other two skills are there for later, standalone:
 
-- `/repo-toolkit:agents` — just refresh agents (e.g. after a big refactor)
-- `/repo-toolkit:frontend` — route a UI request straight to impeccable
+- `/impressive:agents` — just refresh agents (e.g. after a big refactor)
+- `/impressive:frontend` — route a UI request straight to impeccable
 
 Re-running any of these is safe — every step is idempotent.
 
