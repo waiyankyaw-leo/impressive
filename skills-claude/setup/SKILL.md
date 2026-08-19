@@ -25,7 +25,9 @@ Invoke the `harness` skill/plugin for this repo — it defines specialist subage
 
 ### 3. Wire up code-review-graph
 
-Run in the repo root:
+Check it's actually installed first: `command -v code-review-graph`. If it's not on PATH, tell the user (`pip install code-review-graph`) and skip this step — don't let the install command fail with a raw shell error.
+
+Otherwise, run in the repo root:
 
 ```
 code-review-graph install --platform claude-code -y
