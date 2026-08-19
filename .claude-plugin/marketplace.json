@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "repo-toolkit-marketplace",
+  "metadata": {
+    "description": "Local marketplace for the repo-toolkit plugin."
+  },
+  "owner": {
+    "name": "rexx"
+  },
+  "plugins": [
+    {
+      "name": "repo-toolkit",
+      "description": "One-command repo bootstrap that wires up harness (repo-specific agents), code-review-graph (impact/graph search), and impeccable (frontend audit) for any repository.",
+      "version": "1.1.0",
+      "author": {
+        "name": "rexx"
+      },
+      "source": "./"
+    }
+  ]
+}

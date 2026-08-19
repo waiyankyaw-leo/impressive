@@ -1,0 +1,15 @@
+{
+  "name": "repo-toolkit",
+  "version": "1.1.0",
+  "description": "One-command repo bootstrap that wires up harness (repo-specific agents), code-review-graph (impact/graph search), and impeccable (frontend audit) for any repository.",
+  "author": {
+    "name": "rexx"
+  },
+  "license": "MIT",
+  "keywords": ["bootstrap", "agents", "code-review-graph", "impeccable", "harness"],
+  "skills": [
+    "./skills-claude/setup",
+    "./skills/agents",
+    "./skills/frontend"
+  ]
+}
