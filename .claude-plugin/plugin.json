@@ -1,15 +1,16 @@
 {
   "name": "impressive",
-  "version": "1.2.0",
-  "description": "One-command repo bootstrap that wires up harness (repo-specific agents), code-review-graph (impact/graph search), and impeccable (frontend audit) for any repository.",
+  "version": "1.3.0",
+  "description": "One-command repo bootstrap that wires up harness (repo-specific agents), code-review-graph (impact/graph search), impeccable (frontend audit), and diagram-design (visualization) for any repository.",
   "author": {
     "name": "rexx"
   },
   "license": "MIT",
-  "keywords": ["bootstrap", "agents", "code-review-graph", "impeccable", "harness"],
+  "keywords": ["bootstrap", "agents", "code-review-graph", "impeccable", "harness", "diagram-design"],
   "skills": [
     "./skills-claude/setup",
     "./skills/agents",
-    "./skills/frontend"
+    "./skills/frontend",
+    "./skills/visualize"
   ]
 }

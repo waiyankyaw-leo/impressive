@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.0
+
+- Added `visualize`, wrapping
+  [diagram-design](https://github.com/cathrynlavery/diagram-design) (MIT,
+  28 editorial diagram types as standalone HTML/SVG). Shared between Claude
+  and Codex, same as `agents`/`frontend` — diagram-design already ships its
+  own dual-platform manifest, so no guardrail conflict.
+
 ## 1.2.0
 
 - `setup` now checks `code-review-graph` is on PATH before running its
