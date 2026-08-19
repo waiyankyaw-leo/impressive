@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.4.0
+
+- `frontend` now self-installs impeccable when it's missing, instead of
+  just stopping. Runs `npx impeccable skills install -y --providers=<platform>
+  --scope=project` (unattended, no prompts) before routing the request —
+  matters most on Codex, where impeccable isn't reachable via
+  `codex plugin add`.
+- README corrected: Codex's Codex section previously said the three
+  standalone skills "work identically" to Claude Code, which wasn't true.
+  Now documents per-skill what actually happens on Codex, including that
+  `harness` has no Codex support at all and what Codex's own native
+  subagent system offers instead.
+
 ## 1.3.0
 
 - Added `visualize`, wrapping

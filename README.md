@@ -116,10 +116,13 @@ lighter than harness's meta-skill approach, worth doing by hand if you need
 it, but not something this plugin automates today. ([official
 docs](https://learn.chatgpt.com/docs/agent-configuration/subagents))
 
-**`frontend` needs one extra step.** impeccable ships partial Codex support
-(a `.codex/hooks.json`), but installs via its own `npx impeccable` CLI, not
-through `codex plugin add`. Run that once, then `frontend` routes to it
-correctly.
+**`frontend` self-installs impeccable on first use.** impeccable ships
+partial Codex support (a `.codex/hooks.json`) but installs via its own
+`npx impeccable` CLI, not through `codex plugin add`. `frontend` handles
+this itself — if impeccable isn't found, it runs
+`npx impeccable skills install -y --providers=codex --scope=project`
+(fully unattended, no prompts) before routing the request. Nothing extra
+for you to run first.
 
 **`visualize` works normally.** diagram-design ships a real
 `.codex-plugin/plugin.json`, so `codex plugin add diagram-design@diagram-design`
