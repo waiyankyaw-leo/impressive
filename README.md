@@ -54,7 +54,21 @@ Claude-only (see below).
 
 ### Claude Code / Cowork
 
-Enable this plugin, then per repo:
+From inside a session:
+
+```
+/plugin marketplace add waiyankyaw-leo/impressive
+/plugin install impressive@impressive-marketplace
+```
+
+Or from the CLI:
+
+```bash
+claude plugin marketplace add waiyankyaw-leo/impressive
+claude plugin install impressive@impressive-marketplace
+```
+
+Then, per repo:
 
 #### 1. Run `/impressive:setup`
 
@@ -81,8 +95,12 @@ Re-running any of these is safe — every step is idempotent.
 
 ### Codex
 
-Enable this plugin the same way. `agents`, `frontend`, and `visualize` work
-identically.
+```bash
+codex plugin marketplace add waiyankyaw-leo/impressive
+codex plugin add impressive@impressive-marketplace
+```
+
+`agents`, `frontend`, and `visualize` work identically to Claude Code.
 
 **`setup` is not available on Codex.** Codex's plugin schema has no
 equivalent of `disable-model-invocation` (its validator rejects it outright),
