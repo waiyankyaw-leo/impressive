@@ -100,19 +100,39 @@ codex plugin marketplace add waiyankyaw-leo/impressive
 codex plugin add impressive@impressive-marketplace
 ```
 
-`agents`, `frontend`, and `visualize` work identically to Claude Code.
+The three skills don't all carry over the same way — checked against what
+each underlying tool actually ships for Codex, not assumed:
 
-**`setup` is not available on Codex.** Codex's plugin schema has no
+**`agents` won't do anything on Codex, and that's fine.** `harness` (what it
+wraps) has zero Codex support — its repo only ships `.claude-plugin`. But
+this isn't really a gap: Codex has its own built-in subagent system that
+doesn't need repo-specific pre-scaffolding the way harness provides for
+Claude. Three generic agents (`default`, `worker`, `explorer`) ship out of
+the box and spawn on request — "spawn two agents," "delegate this in
+parallel" — no generation step required. If you want genuinely
+codebase-specific custom agents on Codex, that's a `.codex/agents/*.toml`
+file per agent (`name`, `description`, `developer_instructions`) — much
+lighter than harness's meta-skill approach, worth doing by hand if you need
+it, but not something this plugin automates today. ([official
+docs](https://learn.chatgpt.com/docs/agent-configuration/subagents))
+
+**`frontend` needs one extra step.** impeccable ships partial Codex support
+(a `.codex/hooks.json`), but installs via its own `npx impeccable` CLI, not
+through `codex plugin add`. Run that once, then `frontend` routes to it
+correctly.
+
+**`visualize` works normally.** diagram-design ships a real
+`.codex-plugin/plugin.json`, so `codex plugin add diagram-design@diagram-design`
+is all it needs.
+
+**`setup` is not available on Codex at all.** Codex's plugin schema has no
 equivalent of `disable-model-invocation` (its validator rejects it outright),
-so there's no way to offer the same explicit-only guardrail there. Rather
-than ship an unguarded auto-bootstrap skill, run the three steps by hand
-once per repo instead:
+so there's no way to offer the same explicit-only guardrail there. Run the
+underlying step by hand instead:
 
 ```
 code-review-graph install --platform codex -y
 ```
-
-then trigger `harness` and, if the repo is frontend, `impeccable` yourself.
 
 ## License
 
